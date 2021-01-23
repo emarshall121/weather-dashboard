@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./cs/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+              <span class="navbar-brand mb-0 h1 text-center">Weather Dashboard</span>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <!-- <p id="day1high"></p> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <!-- Search for city area -->
+                    <h3 class="text-start" id="searchTerm">Search for a City:</h3>
+                    <!-- Search box and button -->
+                    <form class="d-flex">
+                        <input id="searchTermInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="searchButton" class="btn btn-outline-success" type="submit">Search</button>
+                      </form>
+                      <!-- Clear history button -->
+                      <button class="mt-2">Clear History</button>
+                      <!-- Search History Display -->
+                      <h4 class="pt-3">Search History</h4>
+                      <form id="searchHistory"></form>
+                </div>
+
+                <!-- Current weather displays -->
+                <div class="col-8">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div id="line1">
+                                <h3 id="cityName"></h3>
+                                <img id="icon" src=""></img>
+                            </div>
+                          <h4 id="temperature"></h4>
+                          <h4 id="humidity"></h4>
+                          <h4 id=windspeed></h4>
+                          <h4 id=uvIndex></h4>
+                        </div>
+                      </div>
+
+                      <div id="5dayForecast">
+                          <h3 class="pt-3">5-Day Forcast:</h3>
+                      </div>
+
+                      <div id="5dayCardHolder">
+                        <div class="row">
+                            <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                            <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        </div>
+                        <!-- <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Humidty</h6>
+                            </div>
+                          </div>
+
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Humidty</h6>
+                            </div>
+                          </div>
+
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Humidty</h6>
+                            </div>
+                          </div>
+
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Humidty</h6>
+                            </div>
+                          </div>
+
+                          <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">Date</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">Icon</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Temperature</h6>
+                              <h6 class="card-subtitle mb-2 text-muted">Humidty</h6>
+                            </div>
+                          </div> -->
+                          
+                      </div>
+                    </div>
+            
+                
+                
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div> -->
