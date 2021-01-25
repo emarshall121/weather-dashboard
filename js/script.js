@@ -2,6 +2,9 @@ var searchEl = document.getElementById("searchButton")
 var inputEl = document.getElementById("searchTermInput")
 var searchTerm = ""
 var searchHistory = []
+    if (localStorage.getItem("searchHistory")){
+        searchHistory = JSON.parse(localStorage.getItem("searchHistory"))
+    }
 var currentLocation;
 
 // Grab user input for city and save to localStorage
@@ -10,7 +13,7 @@ searchEl.addEventListener("click", function(){
     searchTerm=inputEl.value;
     var newSearchTerm = inputEl.value;
     searchHistory.push(newSearchTerm);
-    localStorage.setItem("cities", JSON.stringify(searchHistory));
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     getWeather();
     displaySearchHistory();
 })
@@ -76,21 +79,32 @@ var getWeather = function () {
 
         // Displays the high for each day of the 5 day forcast
         for (i=0; i<response.list.length; i+=8){
+            var colEl=document.createElement("div")
+            colEl.className="col-4"
+
             var newCardEl = document.createElement('div');
             newCardEl.className="card";
-            document.querySelector('#forcastCardHolder').appendChild(newCardEl);
+
+            // Adding date to each day/card
             var date = JSON.stringify(response.list[i].dt_txt);
             var dateSplit = date.split(" ");
             var dateFinal = dateSplit[0];
             var dateEl = document.createElement('p');
             dateEl.textContent=dateFinal;
-            document.querySelector('#forcastCardHolder').appendChild(dateEl);
+            newCardEl.appendChild(dateEl);
+            // Temp for each day
             var tempEl = document.createElement('p');
-            tempEl.textContent = response.list[i].main.temp
-            document.querySelector('#forcastCardHolder').appendChild(tempEl);
+            var temp = response.list[i].main.temp
+            tempEl.textContent = `Temp: ${temp}`
+            newCardEl.appendChild(tempEl);
+            // Humidity for each day
             var humidityEl = document.createElement('p');
-            humidityEl.textContent=response.list[i].main.humidity;
-            document.querySelector('#forcastCardHolder').appendChild(humidityEl);
+            var humidity = response.list[i].main.humidity
+            humidityEl.textContent=`Humidity: ${humidity}`;
+            newCardEl.appendChild(humidityEl);
+
+            colEl.appendChild(newCardEl);
+            document.querySelector('#forcastCardHolder').appendChild(colEl);
         }
 
     })
